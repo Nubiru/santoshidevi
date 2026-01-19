@@ -1,0 +1,21 @@
+{
+  "header": {
+    "greeting": "Namaste",
+    "language": "Visualización en Español",
+    "navitem": ["Acerca", "Productos", "Servicios", "Contacto"]
+  },
+  "home": {
+    "body": "| Clases de Yoga | Productos de Bienestar | Cursos Online | Retiros |"
+  },
+  "hero": {
+    "profession": "{Marca de Yoga y Bienestar}",
+    "specialization": "| Clases Online | Ropa de Yoga | Cursos | Productos de Bienestar |",
+    "cta1": "Ver Productos",
+    "cta2": "Reservar Clase"
+  },
+  "about": {
+    "greeting": "Bienvenido",
+    "body": "Santoshidevi es una marca holística de yoga y bienestar dedicada a traer paz, equilibrio y vitalidad a tu vida. Ofrecemos prácticas auténticas de yoga, productos premium de bienestar y cursos transformadores en línea.",
+    "cta": "Saber Más"
+  }
+}

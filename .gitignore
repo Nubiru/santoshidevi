@@ -1,0 +1,39 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Claude AI and development files (not for deployment)
+.claude/
+
+# Task specifications and internal docs (not for deployment)
+task_specs/
+
+# Client-facing brief documents (not for deployment)
+BRIEF_CLIENTE_SANTOSHIDEVI.md
+CHECKLIST_RAPIDO_CLIENTE.md
+README_PROCESO_CLIENTE.md
+
+# Local settings
+settings.json
+.vscode/settings.json

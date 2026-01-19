@@ -1,0 +1,21 @@
+{
+  "header": {
+    "greeting": "Namaste",
+    "language": "Viewing in English",
+    "navitem": ["About", "Products", "Services", "Contact"]
+  },
+  "home": {
+    "body": "| Yoga Classes | Wellness Products | Online Courses | Retreats |"
+  },
+  "hero": {
+    "profession": "{Yoga & Wellness Brand}",
+    "specialization": "| Online Classes | Yoga Apparel | Courses | Wellness Products |",
+    "cta1": "View Products",
+    "cta2": "Book a Class"
+  },
+  "about": {
+    "greeting": "Welcome",
+    "body": "Santoshidevi is a holistic yoga and wellness brand dedicated to bringing peace, balance, and vitality to your life. We offer authentic yoga practices, premium wellness products, and transformative online courses.",
+    "cta": "Learn More"
+  }
+}
