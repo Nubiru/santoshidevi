@@ -12,8 +12,8 @@ import {
 } from '../styles/sections/HeroSection.styled'
 
 export const HeroSection = () => {
-  // WhatsApp number - replace with actual number
-  const whatsappNumber = '5491112345678' // Argentina format
+  // WhatsApp number
+  const whatsappNumber = '5491157940342' // +54 911 5794 0342
   const whatsappMessage = encodeURIComponent(
     'Hola! Me interesa conocer más sobre las clases de yoga 🧘‍♀️'
   )
@@ -49,8 +49,8 @@ export const HeroSection = () => {
 
         <HeroImage>
           <img
-            src="./images/yoga-arcoiris.webp"
-            alt="Yoga Arcoíris - Santoshi Devi"
+            src="./images/vero-hero.webp"
+            alt="Vero - Santoshi Devi Yoga"
           />
         </HeroImage>
       </HeroContainer>

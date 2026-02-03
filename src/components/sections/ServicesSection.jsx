@@ -41,7 +41,7 @@ const services = [
 
 export const ServicesSection = () => {
   // WhatsApp config
-  const whatsappNumber = '5491112345678'
+  const whatsappNumber = '5491157940342' // +54 911 5794 0342
   const whatsappMessage = encodeURIComponent(
     'Hola! Quiero reservar una práctica 🧘‍♀️'
   )

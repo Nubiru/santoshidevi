@@ -25,7 +25,7 @@ export const NavBar = () => {
   const scrollDirection = useScrollDirection('down')
 
   // WhatsApp config
-  const whatsappNumber = '5491112345678'
+  const whatsappNumber = '5491157940342' // +54 911 5794 0342
   const whatsappMessage = encodeURIComponent(
     'Hola! Me interesa conocer más sobre las clases de yoga 🧘‍♀️'
   )

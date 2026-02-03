@@ -14,7 +14,7 @@ import {
 
 export const ContactSection = () => {
   // WhatsApp config
-  const whatsappNumber = '5491112345678'
+  const whatsappNumber = '5491157940342' // +54 911 5794 0342
   const whatsappMessage = encodeURIComponent(
     'Hola Vero! Me gustaría consultar sobre las clases de yoga 🧘‍♀️'
   )
