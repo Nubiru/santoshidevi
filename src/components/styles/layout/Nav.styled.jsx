@@ -1,219 +1,177 @@
 import styled, { keyframes, css } from 'styled-components'
 
 const navItemFade = keyframes`
-  from{
-  opacity: 0;
-  transform: translate(50px);
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
   }
-  to{
-  opacity: 1;
-  transform: translate(0px);
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 `
 
 const navItemAnimation = ({ $index }) => css`
-  animation: ${navItemFade} 0.5s ease forwards ${$index / 6 + 0.5}s;
+  animation: ${navItemFade} 0.4s ease forwards ${$index / 8 + 0.2}s;
 `
 
 export const Nav = styled.nav`
-  height: 80px;
+  height: 70px;
   width: 100%;
-  padding: 0 20px;
+  padding: 0 2rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
   position: fixed;
-  z-index: 98;
-  transition: all 1s ease-in-out;
-  background: rgba(2, 12, 27, 0.8);
-  top: ${({ $scroll }) => ($scroll === 'down' ? '-80px' : '40px')};
-  //TODO: change else of top from 0 to 40px if there is a top banner in use
-`
+  z-index: 100;
+  transition: all 0.4s ease;
+  background: ${({ theme }) => theme.colors.white};
+  box-shadow: ${({ $scroll }) =>
+    $scroll === 'down' ? 'none' : '0 2px 20px rgba(142, 106, 174, 0.1)'};
+  top: ${({ $scroll }) => ($scroll === 'down' ? '-70px' : '0')};
 
-export const Logo = styled.img`
-  width: 55px;
-  border-radius: 50%;
-`
-
-//Language Switch
-export const SwitchContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   @media (max-width: ${({ theme }) => theme.mobile}) {
-    margin: auto;
+    padding: 0 1rem;
   }
 `
 
-export const LngBtn = styled.button`
-  border: none;
-  border-radius: 25px;
-  margin-top: 5px;
-  padding: 5px 10px;
-  background: linear-gradient(
-    135deg,
-    rgba(249, 105, 14, 1) 0%,
-    rgba(255, 255, 255, 1) 100%
-  );
-  cursor: pointer;
-  transition: all 1s ease;
+export const Logo = styled.a`
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+  font-style: italic;
+  color: ${({ theme }) => theme.colors.violetDeep};
+  text-decoration: none;
+  transition: color 0.3s ease;
+
   &:hover {
-    background: linear-gradient(
-      to left,
-      rgba(249, 105, 14, 1) 0%,
-      rgba(255, 255, 255, 1) 100%
-    );
-    transform: scale(0.95);
+    color: ${({ theme }) => theme.colors.violet};
   }
 `
 
-//when the screen is too small, this menu opener appears. composed of following components too
 export const MenuIcon = styled.div`
   cursor: pointer;
-  background: ${({ theme, $open }) =>
-    $open ? 'none' : theme.colors.lightNavyBlue};
-  transition: ${({ theme }) => theme.transition};
-  padding: 0.7rem;
-  border-radius: 5px;
+  padding: 0.5rem;
   display: none;
-  position: absolute;
-  right: 20px;
-  z-index: 10;
+  position: relative;
+  z-index: 101;
 
   @media (max-width: ${({ theme }) => theme.mobile}) {
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
   }
 `
 
-export const LineOne = styled.div`
-  width: 15px;
+export const MenuLine = styled.div`
+  width: 25px;
   height: 2px;
-  margin: 5px 0;
-  background: linear-gradient(
-    135deg,
-    rgba(249, 105, 14, 1) 0%,
-    rgba(255, 255, 255, 1) 100%
-  );
-  transition: ${({ theme }) => theme.transition};
-  transform: ${({ $open }) =>
-    $open ? 'rotate(-45deg) scaleX(2) translate(-6px)' : 'none'};
-`
+  background: ${({ theme }) => theme.colors.violetDeep};
+  transition: all 0.3s ease;
+  border-radius: 2px;
 
-export const LineTwo = styled.div`
-  width: 30px;
-  height: 3px;
-  margin: 5px 0;
-  background: linear-gradient(
-    135deg,
-    rgba(249, 105, 14, 1) 0%,
-    rgba(255, 255, 255, 1) 100%
-  );
-  opacity: ${({ $open }) => ($open ? 0 : 1)};
-  transition: ${({ theme }) => theme.transition};
-`
+  &:nth-child(1) {
+    transform: ${({ $open }) =>
+      $open ? 'rotate(45deg) translate(5px, 5px)' : 'none'};
+  }
 
-export const LineThree = styled.div`
-  width: 15px;
-  height: 2px;
-  margin: 5px 0;
-  margin-left: ${({ $open }) => ($open ? 0 : '15px')};
-  background: linear-gradient(
-    135deg,
-    rgba(249, 105, 14, 1) 0%,
-    rgba(255, 255, 255, 1) 100%
-  );
-  transition: ${({ theme }) => theme.transition};
-  transform: ${({ $open }) =>
-    $open ? 'rotate(45deg) scaleX(2) translate(-5px,1px)' : 'none'};
+  &:nth-child(2) {
+    opacity: ${({ $open }) => ($open ? 0 : 1)};
+  }
+
+  &:nth-child(3) {
+    transform: ${({ $open }) =>
+      $open ? 'rotate(-45deg) translate(5px, -5px)' : 'none'};
+  }
 `
 
 export const NavList = styled.ul`
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-  font-size: 14px;
-  flex-wrap: wrap;
+  gap: 2rem;
 
   @media (max-width: ${({ theme }) => theme.mobile}) {
-    width: 24rem;
-    height: 100vh;
-    background: ${({ theme }) => theme.colors.lightNavyBlue};
     position: fixed;
     top: 0;
-    right: ${({ $open }) => ($open ? 0 : '-24rem')};
-    padding: 3rem;
-    justify-content: flex-start;
+    right: ${({ $open }) => ($open ? '0' : '-100%')};
+    width: 100%;
+    height: 100vh;
+    background: ${({ theme }) => theme.colors.white};
     flex-direction: column;
-    z-index: 9;
-    transition: ${({ theme }) => theme.transition};
+    justify-content: center;
+    gap: 2rem;
+    transition: all 0.4s ease;
+    z-index: 99;
   }
 `
 
 export const NavItem = styled.li`
-  margin: 0.2rem 0.7rem;
-
-  &:last-child {
-    margin-right: 0;
-  }
-
   @media (max-width: ${({ theme }) => theme.mobile}) {
     opacity: 0;
-    margin: 1.2rem 0;
     ${({ $open }) => ($open ? navItemAnimation : null)};
   }
 `
 
 export const NavLink = styled.a`
-  text-transform: lowerscase;
-  color: ${({ theme }) => theme.colors.white};
-  letter-spacing: 1.5px;
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: ${({ theme }) => theme.colors.text};
+  text-decoration: none;
+  transition: color 0.3s ease;
+  position: relative;
 
   &::after {
     content: '';
-    display: block;
-    width: 0%;
-    height: 3px;
-    background: ${({ theme }) => theme.colors.orange};
-    transition: all 300ms ease-in-out;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: ${({ theme }) => theme.colors.violet};
+    transition: width 0.3s ease;
   }
 
   &:hover {
+    color: ${({ theme }) => theme.colors.violetDeep};
+
     &::after {
       width: 100%;
     }
   }
-`
-
-export const Profile = styled.div`
-  display: none;
 
   @media (max-width: ${({ theme }) => theme.mobile}) {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    img {
-      height: 9rem;
-      width: auto;
-      border-radius: 50%;
-      display: block;
-      margin: 1.5rem 0;
-    }
+    font-size: 1.2rem;
   }
 `
-export const SocialIcon = styled.div`
-  display: none;
+
+export const WhatsAppButton = styled.a`
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  background: ${({ theme }) => theme.colors.greenDeep};
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border-radius: 25px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+
+  svg {
+    font-size: 1.1rem;
+  }
+
+  &:hover {
+    background: ${({ theme }) => theme.colors.green};
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(111, 154, 106, 0.3);
+  }
 
   @media (max-width: ${({ theme }) => theme.mobile}) {
-    width: 150px;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-
-    a {
-      margin: 0 0.5rem;
-      font-size: 2rem;
-    }
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
   }
 `

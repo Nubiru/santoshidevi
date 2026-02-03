@@ -25,6 +25,7 @@ dist-ssr
 
 # Claude AI and development files (not for deployment)
 .claude/
+.development/
 
 # Task specifications and internal docs (not for deployment)
 task_specs/

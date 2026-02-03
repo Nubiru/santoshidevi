@@ -1,55 +1,63 @@
-import { useTranslation } from 'react-i18next'
-import { CTAButton } from '../styles/common/CTAButton.styled'
+import { FaWhatsapp, FaChevronDown } from 'react-icons/fa6'
 import {
-  ArrowDownStyle,
-  HeroContent,
   HeroSectionStyle,
-  SocialIcon,
-  SocialIconLink
+  HeroContainer,
+  HeroContent,
+  Logo,
+  Headline,
+  Subheadline,
+  CTAButton,
+  HeroImage,
+  ScrollIndicator
 } from '../styles/sections/HeroSection.styled'
-import {
-  FaArrowDown,
-  FaGithub,
-  FaInstagram,
-  FaTwitter,
-  FaYoutube
-} from 'react-icons/fa6'
 
 export const HeroSection = () => {
-  const [t] = useTranslation('global')
+  // WhatsApp number - replace with actual number
+  const whatsappNumber = '5491112345678' // Argentina format
+  const whatsappMessage = encodeURIComponent(
+    'Hola! Me interesa conocer más sobre las clases de yoga 🧘‍♀️'
+  )
+  const whatsappLink = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`
 
   return (
-    <>
-      <HeroSectionStyle id="hero-section">
+    <HeroSectionStyle id="inicio">
+      <HeroContainer>
         <HeroContent>
-          <h1>Santoshidevi</h1>
-          <h3>{t('hero.profession')}</h3>
-          <p>{t('hero.specialization')}</p>
-          <div>
-            <CTAButton href="#projects">{t('hero.cta1')}</CTAButton>
-            <CTAButton href="#contact" $primary="true" $margin="0 0 0 20px">
-              {t('hero.cta2')}
-            </CTAButton>
-          </div>
+          <Logo>
+            <h2>Santoshi Devi Yoga</h2>
+          </Logo>
+
+          <Headline>
+            Prácticas para habitar el cuerpo con conciencia
+          </Headline>
+
+          <Subheadline>
+            Yoga amoroso para todas las etapas de la vida, respetando el cuerpo
+            y sus ritmos.
+          </Subheadline>
+
+          <CTAButton
+            href={whatsappLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            $whatsapp
+          >
+            <FaWhatsapp />
+            Contactame por WhatsApp
+          </CTAButton>
         </HeroContent>
-        <ArrowDownStyle href="#about">
-          <FaArrowDown />
-        </ArrowDownStyle>
-        <SocialIcon>
-          <SocialIconLink href="#" target="_blank">
-            <FaYoutube />
-          </SocialIconLink>
-          <SocialIconLink href="#" target="_blank">
-            <FaInstagram />
-          </SocialIconLink>
-          <SocialIconLink href="#" target="_blank">
-            <FaGithub />
-          </SocialIconLink>
-          <SocialIconLink href="#" target="_blank">
-            <FaTwitter />
-          </SocialIconLink>
-        </SocialIcon>
-      </HeroSectionStyle>
-    </>
+
+        <HeroImage>
+          <img
+            src="./images/yoga-arcoiris.webp"
+            alt="Yoga Arcoíris - Santoshi Devi"
+          />
+        </HeroImage>
+      </HeroContainer>
+
+      <ScrollIndicator href="#sobre-mi">
+        <FaChevronDown />
+      </ScrollIndicator>
+    </HeroSectionStyle>
   )
 }

@@ -1,37 +1,37 @@
-import { CodedBy, FooterNav, FooterStyle } from '../styles/layout/Footer.styled'
+import {
+  FooterStyle,
+  FooterContent,
+  FooterLogo,
+  FooterNav,
+  FooterDivider,
+  FooterBottom,
+  FooterText
+} from '../styles/layout/Footer.styled'
 
 export const Footer = () => {
-  const months = [
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December'
-  ]
-
   return (
-    <>
-      <FooterStyle>
+    <FooterStyle>
+      <FooterContent>
+        <FooterLogo>Santoshi Devi Yoga</FooterLogo>
+
         <FooterNav>
-          <a href="#about">About</a>
-          <a href="#projects">Products</a>
-          <a href="#services">Services</a>
-          <a href="#contact">Contact</a>
+          <a href="#inicio">Inicio</a>
+          <a href="#sobre-mi">Sobre mí</a>
+          <a href="#servicios">Servicios</a>
+          <a href="#metodo">Método</a>
+          <a href="#contacto">Contacto</a>
         </FooterNav>
-        <CodedBy>Built with React.js</CodedBy>
-        <div>
-          &copy; Santoshidevi | {months[new Date().getMonth()]}{' '}
-          {new Date().getFullYear()}
-        </div>
-      </FooterStyle>
-      <hr />
-    </>
+
+        <FooterDivider />
+
+        <FooterBottom>
+          <FooterText>
+            © {new Date().getFullYear()} Santoshi Devi Yoga
+          </FooterText>
+          <FooterText>•</FooterText>
+          <FooterText>Buenos Aires, Argentina</FooterText>
+        </FooterBottom>
+      </FooterContent>
+    </FooterStyle>
   )
 }

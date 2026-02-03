@@ -1,166 +1,214 @@
 import styled, { keyframes } from 'styled-components'
 
-const typing = keyframes`
-  0%{
-    width: 0ch;
-  };
-  100%{
-    width: 37ch;
-  }
+const fadeIn = keyframes`
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 `
 
-const blink = keyframes`
-  0%{
-    border-right: 4px solid rgba(255,255,255, 0);
-  };
-  100%{
-    border-right: 4px solid rgba(255,255,255, 1);
-  }
-`
-
-const bounce = keyframes`
-  0%, 20%, 50%, 80%, 100% {
-    transform: translateY(0) ;
-  };
-  40%{
-    transform: translateY(-30px) ;
-  };
-  60%{
-    transform: translateY(-15px) ;
-  };
-`
-
-const rotate = keyframes`
-  from{
-    transform: rotate(0deg);
-  };
-  to{
-    transform: rotate(360deg);
-  }
+const float = keyframes`
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
 `
 
 export const HeroSectionStyle = styled.section`
   width: 100%;
-  height: 90vh;
+  min-height: 85vh;
   background: linear-gradient(
-      135deg,
-      rgba(0, 64, 77, 0.9) 0%,
-      rgba(2, 12, 27, 0.8) 100%
-    ),
-    url('./images/landing-page.png') center no-repeat;
-  background-size: contain;
+    135deg,
+    ${({ theme }) => theme.colors.violetLight} 0%,
+    rgba(201, 163, 216, 0.3) 30%,
+    rgba(239, 230, 244, 0.8) 60%,
+    ${({ theme }) => theme.colors.white} 100%
+  );
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
-  margin-top: 40px;
+  padding: 6rem 2rem 4rem;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 70%;
+    height: 150%;
+    background: radial-gradient(
+      ellipse at center,
+      rgba(201, 163, 216, 0.4) 0%,
+      transparent 70%
+    );
+    pointer-events: none;
+  }
+`
+
+export const HeroContainer = styled.div`
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+  position: relative;
+  z-index: 1;
+
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    flex-direction: column;
+    text-align: center;
+  }
 `
 
 export const HeroContent = styled.div`
-  width: 100%;
-  max-width: 58rem;
-  color: ${({ theme }) => theme.colors.white};
-  text-transform: uppercase;
+  flex: 1;
+  max-width: 600px;
+  animation: ${fadeIn} 1s ease-out;
 
-  h1 {
-    letter-spacing: 1.2rem;
-    font-size: 2rem;
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    max-width: 100%;
+  }
+`
+
+export const Logo = styled.div`
+  margin-bottom: 2rem;
+
+  img {
+    max-width: 200px;
+    height: auto;
+  }
+
+  h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem;
     font-weight: 400;
-    overflow: hidden;
-    white-space: nowrap;
-    width: 38ch;
-    margin: auto;
-    animation: ${typing} 5s steps(37), ${blink} 1s ease-in-out 8s infinite;
-    border-radius: 4px solid rgba(255, 255, 255, 1);
-  }
-
-  h3 {
-    font-size: 3rem;
-    margin: 1.5rem 0;
-    background: linear-gradient(
-      to right,
-      ${({ theme }) => theme.colors.orange} 0%,
-      ${({ theme }) => theme.colors.purple} 100%
-    );
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  p {
-    font-size: 1.7rem;
-    font-weight: 400;
-    text-transform: none;
-  }
-
-  div {
-    margin: 2.5rem 0;
+    font-style: italic;
+    color: ${({ theme }) => theme.colors.violetDeep};
+    margin-bottom: 0.5rem;
   }
 
   @media (max-width: ${({ theme }) => theme.mobile}) {
-    h1 {
-      letter-spacing: 1rem;
-      font-size: 1.5rem;
-      width: 39ch;
-    }
-    h3 {
-      font-size: 2.2rem;
-    }
-    p {
-      font-size: 1.3rem;
-    }
-  }
-`
-export const ArrowDownStyle = styled.a`
-  position: absolute;
-  bottom: 50px;
-  svg {
-    font-size: 30px;
-    color: ${({ theme }) => theme.colors.white};
-    animation: ${bounce} 2s infinite 8s;
+    margin-bottom: 1.5rem;
 
-    &:hover {
-      color: ${({ theme }) => theme.colors.orange};
+    h2 {
+      font-size: 2rem;
     }
   }
 `
 
-export const SocialIcon = styled.div`
-  position: fixed;
-  right: 20px;
+export const Headline = styled.h1`
+  font-size: 3rem;
+  font-weight: 500;
+  color: ${({ theme }) => theme.colors.text};
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
 
   @media (max-width: ${({ theme }) => theme.mobile}) {
-    bottom: 50px;
+    font-size: 2.2rem;
   }
 `
 
-export const SocialIconLink = styled.a`
-  height: 3rem;
-  width: 3rem;
-  display: flex;
+export const Subheadline = styled.p`
+  font-size: 1.2rem;
+  color: ${({ theme }) => theme.colors.text};
+  margin-bottom: 2rem;
+  line-height: 1.7;
+  max-width: 500px;
+
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    font-size: 1.1rem;
+    max-width: 100%;
+  }
+`
+
+export const CTAButton = styled.a`
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  background-color: rgba(249, 105, 14, 0.1);
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  background: ${({ $whatsapp, theme }) =>
+    $whatsapp ? theme.colors.greenDeep : theme.colors.violet};
+  color: white;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 30px;
   cursor: pointer;
-  font-size: 14px;
-  margin-bottom: 10px;
+  transition: all 300ms ease;
+  box-shadow: 0 4px 15px rgba(111, 154, 106, 0.3);
 
   svg {
-    color: rgba(249, 15, 14);
-    transition: ${({ theme }) => theme.transition};
+    font-size: 1.3rem;
   }
 
   &:hover {
-    svg {
-      animation: ${rotate} 1.5s linear infinite;
-      color: ${({ theme }) => theme.colors.white};
-    }
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(111, 154, 106, 0.4);
+    color: white;
+    background: ${({ $whatsapp, theme }) =>
+      $whatsapp ? theme.colors.green : theme.colors.violetDeep};
   }
 
   @media (max-width: ${({ theme }) => theme.mobile}) {
-    height: 2.2rem;
-    width: 2.2rem;
+    padding: 0.9rem 1.8rem;
+    font-size: 0.95rem;
+  }
+`
+
+export const HeroImage = styled.div`
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: ${float} 6s ease-in-out infinite;
+
+  img {
+    max-width: 100%;
+    max-height: 500px;
+    border-radius: 20px;
+    object-fit: cover;
+  }
+
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    display: none;
+  }
+`
+
+export const LotusDecor = styled.div`
+  position: absolute;
+  font-size: 8rem;
+  color: ${({ theme }) => theme.colors.violetLight};
+  opacity: 0.3;
+  z-index: 0;
+
+  &.top-right {
+    top: 10%;
+    right: 5%;
+  }
+
+  &.bottom-left {
+    bottom: 10%;
+    left: 5%;
+    font-size: 6rem;
+  }
+`
+
+export const ScrollIndicator = styled.a`
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: ${({ theme }) => theme.colors.violet};
+  font-size: 0.8rem;
+  animation: ${float} 3s ease-in-out infinite;
+
+  svg {
+    font-size: 1.5rem;
+  }
+
+  &:hover {
+    color: ${({ theme }) => theme.colors.violetDeep};
   }
 `

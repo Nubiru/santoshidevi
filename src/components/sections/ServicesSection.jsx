@@ -1,53 +1,83 @@
-import { FaHeart, FaLeaf, FaPerson } from 'react-icons/fa6'
-import { SectionHeading } from '../styles/common/SectionHeading.styled'
+import { FaLaptop, FaHouse, FaHeart, FaSpa } from 'react-icons/fa6'
+import { FaChevronRight } from 'react-icons/fa6'
 import {
-  IconWrapper,
-  ServicesContainer,
   SectionStyle,
-  SingleService
-} from '../styles/sections/ServiecesSection.styled'
+  SectionContainer,
+  SectionHeader,
+  ServicesGrid,
+  ServiceCard,
+  ServiceIcon,
+  ServiceTitle,
+  ServiceDescription,
+  CTAContainer,
+  CTAButton
+} from '../styles/sections/ServicesSection.styled'
+
+const services = [
+  {
+    icon: FaSpa,
+    title: 'Clases de yoga presenciales',
+    description:
+      'Encuentros en un espacio acogedor, creado con amor. Yoga integral, terapéutico y adaptado.'
+  },
+  {
+    icon: FaLaptop,
+    title: 'Clases de yoga online',
+    description: 'Prácticas en vivo a través de Google Meet. Yoga desde la comodidad de tu hogar.'
+  },
+  {
+    icon: FaHouse,
+    title: 'Yoga a domicilio',
+    description:
+      'Yoga adaptado especialmente para vos, en tu hogar. Prácticas personalizadas.'
+  },
+  {
+    icon: FaHeart,
+    title: 'Sesiones de Reiki',
+    description:
+      'Sanación energética presencial o a distancia. Armonización de cuerpo y espíritu.'
+  }
+]
 
 export const ServicesSection = () => {
+  // WhatsApp config
+  const whatsappNumber = '5491112345678'
+  const whatsappMessage = encodeURIComponent(
+    'Hola! Quiero reservar una práctica 🧘‍♀️'
+  )
+  const whatsappLink = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`
+
   return (
-    <>
-      <SectionStyle id="services">
-        <SectionHeading>
-          <h1>Services</h1>
-          <p>Our yoga and wellness offerings</p>
-        </SectionHeading>
-        <ServicesContainer>
-          <SingleService>
-            <IconWrapper>
-              <FaPerson />
-            </IconWrapper>
-            <h1>Online Yoga Classes</h1>
-            <p>
-              Live and recorded yoga sessions accessible from anywhere. Join our community of practitioners for daily classes in Hatha, Vinyasa, and restorative yoga styles.
-            </p>
-          </SingleService>
+    <SectionStyle id="servicios">
+      <SectionContainer>
+        <SectionHeader>
+          <h2>Mis servicios</h2>
+          <p>Prácticas conscientes para cada momento de tu vida</p>
+        </SectionHeader>
 
-          <SingleService>
-            <IconWrapper>
-              <FaLeaf />
-            </IconWrapper>
-            <h1>Wellness Products</h1>
-            <p>
-              Premium eco-friendly yoga mats, blocks, straps, and sustainable yoga apparel. All products are ethically sourced and designed for comfort and durability.
-            </p>
-          </SingleService>
+        <ServicesGrid>
+          {services.map((service, index) => (
+            <ServiceCard key={index}>
+              <ServiceIcon>
+                <service.icon />
+              </ServiceIcon>
+              <ServiceTitle>{service.title}</ServiceTitle>
+              <ServiceDescription>{service.description}</ServiceDescription>
+            </ServiceCard>
+          ))}
+        </ServicesGrid>
 
-          <SingleService>
-            <IconWrapper>
-              <FaHeart />
-            </IconWrapper>
-            <h1>Personal Coaching</h1>
-            <p>
-              One-on-one sessions with certified yoga instructors tailored to your goals. Whether you're a beginner or advanced practitioner, we guide your journey.
-            </p>
-          </SingleService>
-        </ServicesContainer>
-      </SectionStyle>
-      <hr />
-    </>
+        <CTAContainer>
+          <CTAButton
+            href={whatsappLink}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Reservá tu práctica
+            <FaChevronRight />
+          </CTAButton>
+        </CTAContainer>
+      </SectionContainer>
+    </SectionStyle>
   )
 }
