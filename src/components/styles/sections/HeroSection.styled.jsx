@@ -158,22 +158,20 @@ export const HeroImage = styled.div`
   flex: 1;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
   animation: ${float} 6s ease-in-out infinite;
 
   img {
     max-width: 100%;
-    max-height: 500px;
-    border-radius: 20px;
-    object-fit: cover;
+    max-height: 520px;
+    object-fit: contain;
   }
 
   @media (max-width: ${({ theme }) => theme.mobile}) {
-    max-width: 250px;
+    max-width: 220px;
 
     img {
-      max-height: 300px;
-      border-radius: 16px;
+      max-height: 280px;
     }
   }
 `

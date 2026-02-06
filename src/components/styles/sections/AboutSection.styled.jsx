@@ -26,19 +26,19 @@ export const SectionContainer = styled.div`
 export const ImageContainer = styled.div`
   display: flex;
   justify-content: center;
+  align-items: center;
 
   img {
     width: 100%;
-    max-width: 350px;
-    border-radius: 20px;
-    box-shadow: 0 10px 40px rgba(142, 106, 174, 0.2);
+    max-width: 380px;
+    object-fit: contain;
   }
 
   @media (max-width: ${({ theme }) => theme.mobile}) {
     order: -1;
 
     img {
-      max-width: 280px;
+      max-width: 260px;
     }
   }
 `

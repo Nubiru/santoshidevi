@@ -63,23 +63,27 @@ export const ProductCard = styled.div`
 
 export const ProductImage = styled.div`
   width: 100%;
-  height: 250px;
+  height: 320px;
   overflow: hidden;
   background: ${({ theme }) => theme.colors.violetLight};
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1rem;
+  padding: 1.5rem;
 
   img {
     max-width: 100%;
     max-height: 100%;
     object-fit: contain;
-    transition: transform 0.3s ease;
+    transition: transform 200ms ease;
   }
 
   ${ProductCard}:hover & img {
-    transform: scale(1.05);
+    transform: scale(1.03);
+  }
+
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    height: 280px;
   }
 `
 
