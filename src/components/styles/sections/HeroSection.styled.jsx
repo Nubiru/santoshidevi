@@ -7,7 +7,7 @@ const fadeIn = keyframes`
 
 const float = keyframes`
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+  50% { transform: translateY(-8px); }
 `
 
 export const HeroSectionStyle = styled.section`
@@ -56,13 +56,14 @@ export const HeroContainer = styled.div`
   @media (max-width: ${({ theme }) => theme.mobile}) {
     flex-direction: column;
     text-align: center;
+    gap: 2rem;
   }
 `
 
 export const HeroContent = styled.div`
   flex: 1;
   max-width: 600px;
-  animation: ${fadeIn} 1s ease-out;
+  animation: ${fadeIn} 0.8s ease-out;
 
   @media (max-width: ${({ theme }) => theme.mobile}) {
     max-width: 100%;
@@ -108,14 +109,14 @@ export const Headline = styled.h1`
 `
 
 export const Subheadline = styled.p`
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   color: ${({ theme }) => theme.colors.text};
   margin-bottom: 2rem;
   line-height: 1.7;
   max-width: 500px;
 
   @media (max-width: ${({ theme }) => theme.mobile}) {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     max-width: 100%;
   }
 `
@@ -132,7 +133,7 @@ export const CTAButton = styled.a`
   font-weight: 500;
   border-radius: 30px;
   cursor: pointer;
-  transition: all 300ms ease;
+  transition: all 200ms ease;
   box-shadow: 0 4px 15px rgba(111, 154, 106, 0.3);
 
   svg {
@@ -140,7 +141,7 @@ export const CTAButton = styled.a`
   }
 
   &:hover {
-    transform: translateY(-3px);
+    transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(111, 154, 106, 0.4);
     color: white;
     background: ${({ $whatsapp, theme }) =>
@@ -168,26 +169,12 @@ export const HeroImage = styled.div`
   }
 
   @media (max-width: ${({ theme }) => theme.mobile}) {
-    display: none;
-  }
-`
+    max-width: 250px;
 
-export const LotusDecor = styled.div`
-  position: absolute;
-  font-size: 8rem;
-  color: ${({ theme }) => theme.colors.violetLight};
-  opacity: 0.3;
-  z-index: 0;
-
-  &.top-right {
-    top: 10%;
-    right: 5%;
-  }
-
-  &.bottom-left {
-    bottom: 10%;
-    left: 5%;
-    font-size: 6rem;
+    img {
+      max-height: 300px;
+      border-radius: 16px;
+    }
   }
 `
 
@@ -203,6 +190,7 @@ export const ScrollIndicator = styled.a`
   color: ${({ theme }) => theme.colors.violet};
   font-size: 0.8rem;
   animation: ${float} 3s ease-in-out infinite;
+  cursor: pointer;
 
   svg {
     font-size: 1.5rem;
@@ -210,5 +198,9 @@ export const ScrollIndicator = styled.a`
 
   &:hover {
     color: ${({ theme }) => theme.colors.violetDeep};
+  }
+
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    bottom: 1rem;
   }
 `

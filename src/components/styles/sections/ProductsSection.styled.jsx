@@ -53,11 +53,11 @@ export const ProductCard = styled.div`
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 4px 25px rgba(142, 106, 174, 0.12);
-  transition: all 0.3s ease;
+  transition: transform 200ms ease, box-shadow 200ms ease;
 
   &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 35px rgba(142, 106, 174, 0.18);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(142, 106, 174, 0.18);
   }
 `
 
@@ -66,11 +66,15 @@ export const ProductImage = styled.div`
   height: 250px;
   overflow: hidden;
   background: ${({ theme }) => theme.colors.violetLight};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
 
   img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
     transition: transform 0.3s ease;
   }
 
@@ -108,11 +112,12 @@ export const ProductButton = styled.a`
   font-weight: 500;
   border-radius: 25px;
   text-decoration: none;
-  transition: all 0.3s ease;
+  cursor: pointer;
+  transition: all 200ms ease;
 
   &:hover {
     background: ${({ theme }) => theme.colors.green};
     color: white;
-    transform: translateX(5px);
+    transform: translateX(3px);
   }
 `

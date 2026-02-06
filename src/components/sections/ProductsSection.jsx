@@ -14,19 +14,19 @@ import {
 
 const products = [
   {
-    image: './images/yoga-arcoiris.webp',
+    image: './images/logo-yoga-arcoiris.webp',
     title: 'Yoga Arcoíris',
     description:
       'Recorrido consciente por los chakras, para conectar con cada centro energético. Incluye prácticas, meditaciones y acompañamiento grupal.',
-    link: '#', // Replace with actual Hotmart link
+    link: 'https://hotmart.com/es/marketplace/productos/yoga-arcoiris/N101700640M',
     linkText: 'Ver en Hotmart'
   },
   {
-    image: './images/yoga-arcoiris.webp', // Will be replaced with ciclo femenino image
+    image: './images/logo-ciclo-femenino.webp',
     title: 'Sintoniza con tu Ciclo Femenino',
     description:
-      'Yoga consciente para acompañar, comprender y respetar tu ciclicidad femenina. Dirigido a mujeres deportistas y profesoras.',
-    link: '#', // Replace with actual Hotmart link
+      'Guía de yoga y conciencia corporal dirigida a mujeres, profes y personas que acompañan mujeres en actividades físicas o deportivas. Propone conocer y respetar los ciclos femeninos de manera amorosa, cuidando el cuerpo y la energía, y favoreciendo un rendimiento consciente y sostenible.',
+    link: 'https://go.hotmart.com/N98543505A?dp=1',
     linkText: 'Ver en Hotmart'
   }
 ]
@@ -36,15 +36,15 @@ export const ProductsSection = () => {
     <SectionStyle id="productos">
       <SectionContainer>
         <SectionHeader>
-          <h2>Programas y Ebooks</h2>
-          <p>Recursos digitales para tu práctica personal</p>
+          <h2>Guías Digitales</h2>
+          <p>Guías digitales con recursos para cultivar tu práctica</p>
         </SectionHeader>
 
         <ProductsGrid>
           {products.map((product, index) => (
             <ProductCard key={index}>
               <ProductImage>
-                <img src={product.image} alt={product.title} />
+                <img src={product.image} alt={product.title} loading="lazy" />
               </ProductImage>
               <ProductContent>
                 <ProductTitle>{product.title}</ProductTitle>

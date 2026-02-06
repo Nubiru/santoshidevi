@@ -8,6 +8,7 @@ import { ProductsSection } from './components/sections/ProductsSection'
 import { TestimonialsSection } from './components/sections/TestimonialsSection'
 import { ContactSection } from './components/sections/ContactSection'
 import { Footer } from './components/layout/Footer'
+import { SocialSidebar } from './components/layout/SocialSidebar'
 
 export default function App() {
   const theme = {
@@ -22,7 +23,7 @@ export default function App() {
       greenDeep: '#6F9A6A',
       // Neutros
       white: '#FAF9F7',
-      text: '#5C5C5C',
+      text: '#4A4A4A',
       // WhatsApp green
       whatsapp: '#25D366'
     },
@@ -43,6 +44,7 @@ export default function App() {
         <ContactSection />
       </main>
       <Footer />
+      <SocialSidebar />
     </ThemeProvider>
   )
 }

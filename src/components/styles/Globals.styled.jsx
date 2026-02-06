@@ -14,13 +14,22 @@ export const GlobalStyles = createGlobalStyle`
         scroll-behavior: smooth;
         background: ${({ theme }) => theme.colors.white};
         color: ${({ theme }) => theme.colors.text};
-        font-size: 14px;
+        font-size: 16px;
         line-height: 1.6;
     }
 
     body {
         background: ${({ theme }) => theme.colors.white};
         min-height: 100vh;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Mobile: add bottom padding for fixed social sidebar */
+    @media (max-width: ${({ theme }) => theme.mobile}) {
+        main {
+            padding-bottom: 50px;
+        }
     }
 
     h1, h2, h3, h4, h5, h6 {
@@ -33,7 +42,9 @@ export const GlobalStyles = createGlobalStyle`
     a {
         text-decoration: none;
         color: ${({ theme }) => theme.colors.violetDeep};
-        transition: all 250ms ease-in-out;
+        transition: color 200ms ease;
+        cursor: pointer;
+
         &:hover {
             color: ${({ theme }) => theme.colors.violet};
         }
@@ -46,9 +57,40 @@ export const GlobalStyles = createGlobalStyle`
     p {
         color: ${({ theme }) => theme.colors.text};
         line-height: 1.7;
+        max-width: 70ch;
     }
 
-    /* Horizontal seperator line */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* Focus states for keyboard navigation */
+    *:focus-visible {
+        outline: 2px solid ${({ theme }) => theme.colors.violetDeep};
+        outline-offset: 2px;
+        border-radius: 4px;
+    }
+
+    /* Remove default outline only when not using keyboard */
+    :focus:not(:focus-visible) {
+        outline: none;
+    }
+
+    /* Respect reduced motion preference */
+    @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+        }
+
+        html {
+            scroll-behavior: auto;
+        }
+    }
+
+    /* Horizontal separator line */
     hr {
         background: linear-gradient(
             to right,
@@ -62,7 +104,7 @@ export const GlobalStyles = createGlobalStyle`
         opacity: 0.5;
     }
 
-    /* custom scrollbar */
+    /* Custom scrollbar */
     ::-webkit-scrollbar {
         width: 8px;
     }

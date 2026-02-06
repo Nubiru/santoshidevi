@@ -13,32 +13,37 @@ import {
 const testimonials = [
   {
     text: 'Hermoso lugar y una gran profe que me acompaña sin exigirme. Gracias Vero!',
-    author: 'Alumna',
+    author: 'Marcos',
     source: 'Google Maps'
   },
   {
     text: 'Empecé en enero de este año y me encantó! Las clases super personalizadas, y siempre está atenta a todo. Un espacio de mucho amor, armonía y contención.',
-    author: 'Alumna',
+    author: 'Natalia',
     source: 'Google Maps'
   },
   {
     text: 'El mejor espacio! Te vas a sentir en confianza y con una energía súper renovadora!',
-    author: 'Marina D.',
+    author: 'Marina',
     source: 'Google Maps'
   },
   {
     text: 'Me encantan las clases de Yoga de Vero. Transmite mucha paz, pero a la vez quedo con energía para seguir el día.',
-    author: 'Alumna',
+    author: 'Daniela',
     source: 'Google Maps'
   },
   {
     text: 'Yo empecé yoga con Vero, al principio me costó y Vero con su dulzura y paciencia me enseñó muchísimo. Ahora controlo y alivio mis dolores aplicando sus técnicas.',
-    author: 'Alumna',
+    author: 'Olga',
     source: 'Google Maps'
   },
   {
     text: 'Vero es la mejor profe de yoga; cálida y muy profesional. 100% recomendable.',
-    author: 'Alumna',
+    author: 'Lucía',
+    source: 'Google Maps'
+  },
+  {
+    text: 'Conocí a Vero hace unos años. Realizamos talleres con nuestro equipo de fútbol femenino y siempre es un placer recibirla.',
+    author: 'Paula',
     source: 'Google Maps'
   }
 ]

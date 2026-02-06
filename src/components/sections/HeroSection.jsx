@@ -32,8 +32,8 @@ export const HeroSection = () => {
           </Headline>
 
           <Subheadline>
-            Yoga amoroso para todas las etapas de la vida, respetando el cuerpo
-            y sus ritmos.
+            Yoga amoroso para todas las etapas de tu vida, respetando el cuerpo
+            y sus ritmos naturales.
           </Subheadline>
 
           <CTAButton

@@ -34,7 +34,7 @@ export const SectionHeader = styled.div`
 
 export const ServicesGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
 
   @media (max-width: 1024px) {
@@ -48,18 +48,37 @@ export const ServicesGrid = styled.div`
   }
 `
 
+export const ActivitiesList = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.8rem;
+  margin-top: 2.5rem;
+`
+
+export const ActivityTag = styled.span`
+  display: inline-block;
+  padding: 0.5rem 1.2rem;
+  background: ${({ theme }) => theme.colors.violetLight};
+  color: ${({ theme }) => theme.colors.violetDeep};
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border: 1px solid ${({ theme }) => theme.colors.violet};
+`
+
 export const ServiceCard = styled.div`
   background: ${({ theme }) => theme.colors.white};
   border-radius: 20px;
   padding: 2rem 1.5rem;
   text-align: center;
   box-shadow: 0 4px 20px rgba(142, 106, 174, 0.1);
-  transition: all 0.3s ease;
+  transition: transform 200ms ease, box-shadow 200ms ease;
   border: 1px solid ${({ theme }) => theme.colors.violetLight};
 
   &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 30px rgba(142, 106, 174, 0.15);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(142, 106, 174, 0.15);
   }
 `
 
@@ -92,6 +111,16 @@ export const ServiceDescription = styled.p`
   line-height: 1.6;
 `
 
+export const ServiceQuote = styled.p`
+  font-size: 0.85rem;
+  color: ${({ theme }) => theme.colors.violetDeep};
+  font-style: italic;
+  line-height: 1.5;
+  margin-top: 0.8rem;
+  padding-top: 0.8rem;
+  border-top: 1px solid ${({ theme }) => theme.colors.violetLight};
+`
+
 export const CTAContainer = styled.div`
   text-align: center;
   margin-top: 3rem;
@@ -108,7 +137,8 @@ export const CTAButton = styled.a`
   font-weight: 500;
   border-radius: 30px;
   text-decoration: none;
-  transition: all 0.3s ease;
+  cursor: pointer;
+  transition: all 200ms ease;
 
   &:hover {
     background: ${({ theme }) => theme.colors.green};

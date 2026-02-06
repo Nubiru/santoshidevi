@@ -108,6 +108,113 @@ async function optimizeImages() {
     .toFile(`${OUTPUT_DIR}/yoga-duplas-2.webp`);
 
   // ========================================
+  // NEW VERO - Transparent PNGs + sky background
+  // ========================================
+  const newVeroDir = `.development/new/Vero -20260206T141216Z-1-001/Vero /`;
+
+  // Vero meditation cutout (transparent bg)
+  console.log('Processing: vero-cutout-meditation.webp');
+  await sharp(`${newVeroDir}1_20260203_110256_0000.png`)
+    .resize(500, null, { withoutEnlargement: true })
+    .webp({ quality: 90 })
+    .toFile(`${OUTPUT_DIR}/vero-cutout-meditation.webp`);
+
+  // Vero portrait cutout (transparent bg - pink shawl)
+  console.log('Processing: vero-cutout-portrait.webp');
+  await sharp(`${newVeroDir}2_20260203_110256_0001.png`)
+    .resize(500, null, { withoutEnlargement: true })
+    .webp({ quality: 90 })
+    .toFile(`${OUTPUT_DIR}/vero-cutout-portrait.webp`);
+
+  // Vero with sky background
+  console.log('Processing: vero-sky.webp');
+  await sharp(`${newVeroDir}3_20260203_110256_0002.png`)
+    .resize(500, null, { withoutEnlargement: true })
+    .webp({ quality: 90 })
+    .toFile(`${OUTPUT_DIR}/vero-sky.webp`);
+
+  // ========================================
+  // EBOOK LOGOS
+  // ========================================
+  const ebookDir = `.development/new/Logos ebook -20260206T141056Z-1-001/Logos ebook /`;
+
+  console.log('Processing: logo-yoga-arcoiris.webp');
+  await sharp(`${ebookDir}logo yoga arcoiris_.png`)
+    .resize(400, null, { withoutEnlargement: true })
+    .webp({ quality: 90 })
+    .toFile(`${OUTPUT_DIR}/logo-yoga-arcoiris.webp`);
+
+  console.log('Processing: logo-ciclo-femenino.webp');
+  await sharp(`${ebookDir}logo Sintoniza con tu ciclo_.jpg`)
+    .resize(400, null, { withoutEnlargement: true })
+    .webp({ quality: 90 })
+    .toFile(`${OUTPUT_DIR}/logo-ciclo-femenino.webp`);
+
+  // ========================================
+  // NEW - RETIRO Y CEREMONIAS
+  // ========================================
+  const ceremoniaDir = `.development/new/Retiro y ceremonias -20260206T163120Z-1-001/Retiro y ceremonias /`;
+
+  // Outdoor yoga retreat in nature - stunning sunlight
+  console.log('Processing: retiro-outdoor.webp');
+  await sharp(`${ceremoniaDir}IMG_20250511_121839.jpg`)
+    .resize(800, null, { withoutEnlargement: true })
+    .webp({ quality: 80 })
+    .toFile(`${OUTPUT_DIR}/retiro-outdoor.webp`);
+
+  // Ceremony altar with candles and sacred objects
+  console.log('Processing: ceremonia-altar.webp');
+  await sharp(`${ceremoniaDir}IMG_20250614_151401.jpg`)
+    .resize(800, null, { withoutEnlargement: true })
+    .webp({ quality: 80 })
+    .toFile(`${OUTPUT_DIR}/ceremonia-altar.webp`);
+
+  // Women's circle - group photo with altar
+  console.log('Processing: ceremonia-circulo.webp');
+  await sharp(`${ceremoniaDir}IMG_20250614_164804.jpg`)
+    .resize(800, null, { withoutEnlargement: true })
+    .webp({ quality: 80 })
+    .toFile(`${OUTPUT_DIR}/ceremonia-circulo.webp`);
+
+  // Women's ceremony activity from above
+  console.log('Processing: ceremonia-actividad.webp');
+  await sharp(`${ceremoniaDir}IMG_20250614_161242.jpg`)
+    .resize(800, null, { withoutEnlargement: true })
+    .webp({ quality: 80 })
+    .toFile(`${OUTPUT_DIR}/ceremonia-actividad.webp`);
+
+  // ========================================
+  // NEW - YOGA PARA DEPORTISTAS
+  // ========================================
+  const deportistasDir = `.development/new/Yoga para deportistas -20260206T163101Z-1-001/Yoga para deportistas /`;
+
+  // Kids stretching on soccer field
+  console.log('Processing: deportistas-cancha.webp');
+  await sharp(`${deportistasDir}IMG_20251109_114725.jpg`)
+    .resize(800, null, { withoutEnlargement: true })
+    .webp({ quality: 80 })
+    .toFile(`${OUTPUT_DIR}/deportistas-cancha.webp`);
+
+  // Women's football team group photo
+  console.log('Processing: deportistas-equipo.webp');
+  await sharp(`${deportistasDir}IMG-20240927-WA0090.jpg`)
+    .resize(800, null, { withoutEnlargement: true })
+    .webp({ quality: 80 })
+    .toFile(`${OUTPUT_DIR}/deportistas-equipo.webp`);
+
+  // ========================================
+  // NEW - YOGA EN DUPLAS (additional)
+  // ========================================
+  const newDuplasDir = `.development/new/Yoga en duplas -20260206T163147Z-1-001/Yoga en duplas /`;
+
+  // Partner yoga backbend - beautiful pose
+  console.log('Processing: yoga-duplas-3.webp');
+  await sharp(`${newDuplasDir}20190720_143031.jpg`)
+    .resize(600, null, { withoutEnlargement: true })
+    .webp({ quality: 80 })
+    .toFile(`${OUTPUT_DIR}/yoga-duplas-3.webp`);
+
+  // ========================================
   // EXISTING IMAGES - Keep these
   // ========================================
 

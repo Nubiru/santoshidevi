@@ -37,8 +37,17 @@ export const TestimonialsGrid = styled.div`
   grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
 
+  /* Center the last row when items don't fill it */
+  & > :last-child:nth-child(3n + 1) {
+    grid-column: 2;
+  }
+
   @media (max-width: 1024px) {
     grid-template-columns: repeat(2, 1fr);
+
+    & > :last-child:nth-child(3n + 1) {
+      grid-column: auto;
+    }
   }
 
   @media (max-width: ${({ theme }) => theme.mobile}) {
@@ -53,9 +62,15 @@ export const TestimonialCard = styled.div`
   border-radius: 20px;
   padding: 2rem;
   position: relative;
+  transition: transform 200ms ease, box-shadow 200ms ease;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(142, 106, 174, 0.12);
+  }
 
   &::before {
-    content: '"';
+    content: '\u201C';
     position: absolute;
     top: 1rem;
     left: 1.5rem;
@@ -94,6 +109,7 @@ export const AuthorAvatar = styled.div`
   color: white;
   font-weight: 500;
   font-size: 1rem;
+  flex-shrink: 0;
 `
 
 export const AuthorInfo = styled.div`
@@ -107,6 +123,6 @@ export const AuthorInfo = styled.div`
   span {
     font-size: 0.8rem;
     color: ${({ theme }) => theme.colors.text};
-    opacity: 0.8;
+    opacity: 0.7;
   }
 `

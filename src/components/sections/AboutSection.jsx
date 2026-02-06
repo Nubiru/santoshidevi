@@ -57,7 +57,7 @@ export const AboutSection = () => {
           </AboutContent>
 
           <ImageContainer>
-            <img src="./images/vero-meditation.webp" alt="Vero en meditación - Santoshi Devi Yoga" />
+            <img src="./images/vero-meditation.webp" alt="Vero en meditación - Santoshi Devi Yoga" loading="lazy" />
           </ImageContainer>
         </SectionContainer>
       </SectionStyle>
