@@ -36,6 +36,7 @@ export const NavBar = () => {
     <Nav $scroll={scrollDirection}>
       <Logo href="#inicio">
         <img src="./images/logo-nav.webp" alt="Santoshi Devi Yoga" />
+        <span>Santoshi Devi</span>
       </Logo>
 
       <MenuIcon $open={menuOpen} onClick={() => setMenuOpen(!menuOpen)}>

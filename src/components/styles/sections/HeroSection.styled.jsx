@@ -71,19 +71,37 @@ export const HeroContent = styled.div`
 `
 
 export const Logo = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
   margin-bottom: 1.5rem;
 
   img {
-    max-width: 180px;
-    height: auto;
+    height: 60px;
+    width: auto;
     object-fit: contain;
   }
 
+  h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-weight: 400;
+    font-style: italic;
+    color: ${({ theme }) => theme.colors.violetDeep};
+    margin: 0;
+    line-height: 1.2;
+  }
+
   @media (max-width: ${({ theme }) => theme.mobile}) {
+    justify-content: center;
     margin-bottom: 1rem;
 
     img {
-      max-width: 140px;
+      height: 50px;
+    }
+
+    h2 {
+      font-size: 1.6rem;
     }
   }
 `

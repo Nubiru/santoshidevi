@@ -12,22 +12,37 @@ export const FooterContent = styled.div`
   margin: 0 auto;
 `
 
-export const FooterLogo = styled.a`
-  display: inline-block;
-  margin-bottom: 1.5rem;
+export const BackToTop = styled.a`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
   text-decoration: none;
-  transition: opacity 200ms ease;
+  margin-bottom: 1.5rem;
+  transition: all 200ms ease;
+  cursor: pointer;
 
-  img {
-    height: 80px;
-    width: auto;
-    object-fit: contain;
-    filter: brightness(0) invert(1);
+  svg {
+    font-size: 1.2rem;
   }
 
   &:hover {
-    opacity: 0.8;
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateY(-2px);
+    color: white;
   }
+`
+
+export const FooterLogo = styled.div`
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem;
+  font-style: italic;
+  margin-bottom: 1.5rem;
+  color: white;
 `
 
 export const FooterNav = styled.nav`
@@ -41,7 +56,7 @@ export const FooterNav = styled.nav`
     color: rgba(255, 255, 255, 0.8);
     text-decoration: none;
     font-size: 0.9rem;
-    transition: color 0.3s ease;
+    transition: color 200ms ease;
 
     &:hover {
       color: white;

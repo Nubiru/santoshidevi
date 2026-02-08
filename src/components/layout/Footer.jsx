@@ -1,3 +1,4 @@
+import { FaChevronUp } from 'react-icons/fa6'
 import {
   FooterStyle,
   FooterContent,
@@ -5,16 +6,19 @@ import {
   FooterNav,
   FooterDivider,
   FooterBottom,
-  FooterText
+  FooterText,
+  BackToTop
 } from '../styles/layout/Footer.styled'
 
 export const Footer = () => {
   return (
     <FooterStyle>
       <FooterContent>
-        <FooterLogo href="#inicio">
-          <img src="./images/logo-large.webp" alt="Santoshi Devi Yoga" />
-        </FooterLogo>
+        <BackToTop href="#inicio" aria-label="Volver al inicio">
+          <FaChevronUp />
+        </BackToTop>
+
+        <FooterLogo>Santoshi Devi Yoga</FooterLogo>
 
         <FooterNav>
           <a href="#inicio">Inicio</a>

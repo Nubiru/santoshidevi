@@ -38,13 +38,22 @@ export const Nav = styled.nav`
 export const Logo = styled.a`
   display: flex;
   align-items: center;
+  gap: 0.5rem;
   text-decoration: none;
   transition: opacity 200ms ease;
 
   img {
-    height: 50px;
+    height: 45px;
     width: auto;
     object-fit: contain;
+  }
+
+  span {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 500;
+    font-style: italic;
+    color: ${({ theme }) => theme.colors.violetDeep};
   }
 
   &:hover {
@@ -53,7 +62,11 @@ export const Logo = styled.a`
 
   @media (max-width: ${({ theme }) => theme.mobile}) {
     img {
-      height: 42px;
+      height: 38px;
+    }
+
+    span {
+      font-size: 1.1rem;
     }
   }
 `
