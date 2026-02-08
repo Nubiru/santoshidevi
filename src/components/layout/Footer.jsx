@@ -12,13 +12,16 @@ export const Footer = () => {
   return (
     <FooterStyle>
       <FooterContent>
-        <FooterLogo>Santoshi Devi Yoga</FooterLogo>
+        <FooterLogo href="#inicio">
+          <img src="./images/logo-large.webp" alt="Santoshi Devi Yoga" />
+        </FooterLogo>
 
         <FooterNav>
           <a href="#inicio">Inicio</a>
           <a href="#sobre-mi">Sobre mí</a>
           <a href="#servicios">Servicios</a>
-          <a href="#metodo">Método</a>
+          <a href="#productos">Guías</a>
+          <a href="#testimonios">Testimonios</a>
           <a href="#contacto">Contacto</a>
         </FooterNav>
 
@@ -28,7 +31,6 @@ export const Footer = () => {
           <FooterText>
             © {new Date().getFullYear()} Santoshi Devi Yoga
           </FooterText>
-          <FooterText>•</FooterText>
           <FooterText>Buenos Aires, Argentina</FooterText>
         </FooterBottom>
       </FooterContent>

@@ -36,16 +36,25 @@ export const Nav = styled.nav`
 `
 
 export const Logo = styled.a`
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.5rem;
-  font-weight: 500;
-  font-style: italic;
-  color: ${({ theme }) => theme.colors.violetDeep};
+  display: flex;
+  align-items: center;
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: opacity 200ms ease;
+
+  img {
+    height: 50px;
+    width: auto;
+    object-fit: contain;
+  }
 
   &:hover {
-    color: ${({ theme }) => theme.colors.violet};
+    opacity: 0.8;
+  }
+
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    img {
+      height: 42px;
+    }
   }
 `
 

@@ -71,27 +71,19 @@ export const HeroContent = styled.div`
 `
 
 export const Logo = styled.div`
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 
   img {
-    max-width: 200px;
+    max-width: 180px;
     height: auto;
-  }
-
-  h2 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 2.5rem;
-    font-weight: 400;
-    font-style: italic;
-    color: ${({ theme }) => theme.colors.violetDeep};
-    margin-bottom: 0.5rem;
+    object-fit: contain;
   }
 
   @media (max-width: ${({ theme }) => theme.mobile}) {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
 
-    h2 {
-      font-size: 2rem;
+    img {
+      max-width: 140px;
     }
   }
 `

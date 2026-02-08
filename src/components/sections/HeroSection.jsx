@@ -24,7 +24,7 @@ export const HeroSection = () => {
       <HeroContainer>
         <HeroContent>
           <Logo>
-            <h2>Santoshi Devi Yoga</h2>
+            <img src="./images/logo-large.webp" alt="Santoshi Devi Yoga" />
           </Logo>
 
           <Headline>

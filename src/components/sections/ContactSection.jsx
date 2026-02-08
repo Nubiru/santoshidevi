@@ -70,6 +70,15 @@ export const ContactSection = () => {
             </SocialLink>
           </SocialLinks>
         </ContactCard>
+
+        <div style={{ textAlign: 'center', marginTop: '2.5rem', opacity: 0.6 }}>
+          <img
+            src="./images/logo-large.webp"
+            alt="Santoshi Devi Yoga"
+            style={{ height: '100px', width: 'auto', objectFit: 'contain' }}
+            loading="lazy"
+          />
+        </div>
       </SectionContainer>
     </SectionStyle>
   )

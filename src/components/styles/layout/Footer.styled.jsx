@@ -12,12 +12,22 @@ export const FooterContent = styled.div`
   margin: 0 auto;
 `
 
-export const FooterLogo = styled.div`
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.8rem;
-  font-style: italic;
+export const FooterLogo = styled.a`
+  display: inline-block;
   margin-bottom: 1.5rem;
-  color: white;
+  text-decoration: none;
+  transition: opacity 200ms ease;
+
+  img {
+    height: 80px;
+    width: auto;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+  }
+
+  &:hover {
+    opacity: 0.8;
+  }
 `
 
 export const FooterNav = styled.nav`
