@@ -63,6 +63,10 @@ export const HeroContainer = styled.div`
 export const HeroContent = styled.div`
   flex: 1;
   max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
   animation: ${fadeIn} 0.8s ease-out;
 
   @media (max-width: ${({ theme }) => theme.mobile}) {
@@ -71,37 +75,17 @@ export const HeroContent = styled.div`
 `
 
 export const Logo = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.5rem;
 
   img {
-    height: 60px;
+    height: 250px;
     width: auto;
     object-fit: contain;
   }
 
-  h2 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 2rem;
-    font-weight: 400;
-    font-style: italic;
-    color: ${({ theme }) => theme.colors.violetDeep};
-    margin: 0;
-    line-height: 1.2;
-  }
-
   @media (max-width: ${({ theme }) => theme.mobile}) {
-    justify-content: center;
-    margin-bottom: 1rem;
-
     img {
-      height: 50px;
-    }
-
-    h2 {
-      font-size: 1.6rem;
+      height: 180px;
     }
   }
 `
@@ -110,7 +94,7 @@ export const Headline = styled.h1`
   font-size: 3rem;
   font-weight: 500;
   color: ${({ theme }) => theme.colors.text};
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   line-height: 1.2;
 
   @media (max-width: ${({ theme }) => theme.mobile}) {
@@ -121,7 +105,7 @@ export const Headline = styled.h1`
 export const Subheadline = styled.p`
   font-size: 1.15rem;
   color: ${({ theme }) => theme.colors.text};
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   line-height: 1.7;
   max-width: 500px;
 

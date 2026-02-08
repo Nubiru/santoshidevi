@@ -43,7 +43,7 @@ export const Logo = styled.a`
   transition: opacity 200ms ease;
 
   img {
-    height: 45px;
+    height: 60px;
     width: auto;
     object-fit: contain;
   }
@@ -62,7 +62,7 @@ export const Logo = styled.a`
 
   @media (max-width: ${({ theme }) => theme.mobile}) {
     img {
-      height: 38px;
+      height: 50px;
     }
 
     span {
