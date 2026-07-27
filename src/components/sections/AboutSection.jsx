@@ -44,8 +44,8 @@ export const AboutSection = () => {
 
             <HighlightBox>
               <p>
-                "La práctica se adapta al cuerpo, no el cuerpo a la práctica.
-                Cada día es distinto, cada cuerpo es único."
+                &quot;La práctica se adapta al cuerpo, no el cuerpo a la práctica.
+                Cada día es distinto, cada cuerpo es único.&quot;
               </p>
             </HighlightBox>
 

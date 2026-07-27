@@ -23,7 +23,8 @@ const navItems = [
 
 export const NavBar = () => {
   const [menuOpen, setMenuOpen] = useState(false)
-  const scrollDirection = useScrollDirection('down')
+  // 'up' keeps the bar visible on load; Nav.styled hides it only on 'down'.
+  const scrollDirection = useScrollDirection({ initialDirection: 'up' })
 
   // WhatsApp config
   const whatsappNumber = '5491157940342' // +54 911 5794 0342
