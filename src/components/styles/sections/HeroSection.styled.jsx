@@ -27,6 +27,12 @@ export const HeroSectionStyle = styled.section`
   padding: 6rem 2rem 4rem;
   overflow: hidden;
 
+  /* Tighter on mobile so the WhatsApp CTA clears the fold and the fixed
+     SocialSidebar bar at the bottom of the viewport. */
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    padding: 4.5rem 1.5rem 3rem;
+  }
+
   &::before {
     content: '';
     position: absolute;
@@ -74,18 +80,21 @@ export const HeroContent = styled.div`
   }
 `
 
+/* Heights match the old rendered size: the source used to carry ~45% transparent
+   padding, so 250px/180px only ever showed ~138px/~100px of actual logo. The
+   asset is now trimmed, so these are the real visible heights. */
 export const Logo = styled.div`
   margin-bottom: 0.5rem;
 
   img {
-    height: 250px;
+    height: 140px;
     width: auto;
     object-fit: contain;
   }
 
   @media (max-width: ${({ theme }) => theme.mobile}) {
     img {
-      height: 180px;
+      height: 100px;
     }
   }
 `

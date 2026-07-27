@@ -20,7 +20,12 @@ const newDuplasDir = `${NEW_DIR}/Yoga en duplas -20260206T163147Z-1-001/Yoga en 
 // generated here — don't delete them expecting this script to bring them back.
 //
 // `extract` (optional) crops the source before resizing, via sharp's extract().
+// `trim` (optional) strips uniform/transparent border padding first.
 const SITE_IMAGES = [
+  // Brand logo. The source is a 1024x1024 canvas whose artwork is only 576x567 —
+  // ~45% of the height is transparent padding, which pushed the hero CTA below
+  // the fold on mobile. Trim it so CSS height == visible logo height.
+  { src: `${NEW_DIR}/logo sin fondo .png`, out: 'logo-large.webp', width: 576, quality: 90, trim: true },
   // Hero portrait — Vero's profile photo (moon phases, lavender palette)
   { src: `${DEV_DIR}/foto perfil .png`, out: 'vero-hero.webp', width: 600, quality: 85 },
   // Ebook covers. The Yoga Arcoíris file is a screenshot taken from a scrolling
@@ -80,10 +85,11 @@ async function optimizeImages() {
 
   console.log('=== Optimizing Santoshi Devi Images ===\n');
 
-  for (const { src, out, width, quality, extract } of SITE_IMAGES) {
+  for (const { src, out, width, quality, extract, trim } of SITE_IMAGES) {
     console.log(`Processing: ${out}`);
     const pipeline = sharp(src);
     if (extract) pipeline.extract(extract);
+    if (trim) pipeline.trim({ threshold: 10 });
     await pipeline
       .resize(width, null, { withoutEnlargement: true })
       .webp({ quality })
