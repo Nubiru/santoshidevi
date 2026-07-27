@@ -14,7 +14,7 @@ import {
 
 const products = [
   {
-    image: './images/logo-yoga-arcoiris.webp',
+    image: './images/tapa-yoga-arcoiris.webp',
     title: 'Yoga Arcoíris',
     description:
       'Recorrido consciente por los chakras, para conectar con cada centro energético. Incluye prácticas, meditaciones y acompañamiento grupal.',
@@ -22,7 +22,7 @@ const products = [
     linkText: 'Ver en Hotmart'
   },
   {
-    image: './images/logo-ciclo-femenino.webp',
+    image: './images/tapa-ciclo-femenino.webp',
     title: 'Sintoniza con tu Ciclo Femenino',
     description:
       'Guía de yoga y conciencia corporal dirigida a mujeres, profes y personas que acompañan mujeres en actividades físicas o deportivas. Propone conocer y respetar los ciclos femeninos de manera amorosa, cuidando el cuerpo y la energía, y favoreciendo un rendimiento consciente y sostenible.',

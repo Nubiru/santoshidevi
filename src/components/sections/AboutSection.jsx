@@ -2,7 +2,6 @@ import { FaHeart, FaEye, FaSpa } from 'react-icons/fa6'
 import {
   SectionStyle,
   SectionContainer,
-  ImageContainer,
   AboutContent,
   HighlightBox,
   CertificationsList,
@@ -55,10 +54,6 @@ export const AboutSection = () => {
               ))}
             </CertificationsList>
           </AboutContent>
-
-          <ImageContainer>
-            <img src="./images/vero-meditation.webp" alt="Vero en meditación - Santoshi Devi Yoga" loading="lazy" />
-          </ImageContainer>
         </SectionContainer>
       </SectionStyle>
 

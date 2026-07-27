@@ -15,7 +15,7 @@ export const HeroSection = () => {
   // WhatsApp number
   const whatsappNumber = '5491157940342' // +54 911 5794 0342
   const whatsappMessage = encodeURIComponent(
-    'Hola! Me interesa conocer más sobre las clases de yoga 🧘‍♀️'
+    'Hola! Quiero agendar mi clase de prueba 🧘‍♀️'
   )
   const whatsappLink = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`
 
@@ -28,12 +28,13 @@ export const HeroSection = () => {
           </Logo>
 
           <Headline>
-            Prácticas para habitar el cuerpo con conciencia
+            Prácticas de yoga, respiración y movimiento consciente para habitar
+            el cuerpo con amor
           </Headline>
 
           <Subheadline>
-            Yoga amoroso para todas las etapas de tu vida, respetando el cuerpo
-            y sus ritmos naturales.
+            Clases presenciales, virtuales y a domicilio. Personalizadas o
+            grupales.
           </Subheadline>
 
           <CTAButton
@@ -43,7 +44,7 @@ export const HeroSection = () => {
             $whatsapp
           >
             <FaWhatsapp />
-            Contactame por WhatsApp
+            Agenda tu clase de prueba
           </CTAButton>
         </HeroContent>
 

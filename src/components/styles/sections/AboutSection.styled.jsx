@@ -9,38 +9,11 @@ export const SectionStyle = styled.section`
   );
 `
 
+/* Single column since the portrait was removed — the text block carries the
+   section on its own, so cap the measure rather than let it run to 1100px. */
 export const SectionContainer = styled.div`
-  max-width: 1100px;
+  max-width: 760px;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: 4rem;
-  align-items: center;
-
-  @media (max-width: ${({ theme }) => theme.mobile}) {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-`
-
-export const ImageContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  img {
-    width: 100%;
-    max-width: 380px;
-    object-fit: contain;
-  }
-
-  @media (max-width: ${({ theme }) => theme.mobile}) {
-    order: -1;
-
-    img {
-      max-width: 260px;
-    }
-  }
 `
 
 export const AboutContent = styled.div`

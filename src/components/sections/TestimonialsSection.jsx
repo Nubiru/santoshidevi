@@ -53,8 +53,8 @@ export const TestimonialsSection = () => {
     <SectionStyle id="testimonios">
       <SectionContainer>
         <SectionHeader>
-          <h2>Lo que dicen mis alumnxs</h2>
-          <p>Experiencias de quienes practican conmigo</p>
+          <h2>Testimonios de las prácticas</h2>
+          <p>De quienes tuvieron su experiencia Santoshi Devi</p>
         </SectionHeader>
 
         <TestimonialsGrid>

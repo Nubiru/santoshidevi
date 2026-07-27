@@ -1,6 +1,7 @@
 import sharp from 'sharp';
 import { promises as fs } from 'fs';
 
+const DEV_DIR = '.development';
 const SOURCE_DIR = '.development/images';
 const NEW_DIR = '.development/new';
 const OUTPUT_DIR = 'public/images';
@@ -17,14 +18,22 @@ const newDuplasDir = `${NEW_DIR}/Yoga en duplas -20260206T163147Z-1-001/Yoga en 
 // Images the site currently references. Only these are written to public/images.
 // Note: logo-nav.webp and logo-large.webp are hand-made brand assets, not
 // generated here — don't delete them expecting this script to bring them back.
+//
+// `extract` (optional) crops the source before resizing, via sharp's extract().
 const SITE_IMAGES = [
-  // Hero portrait (pink shawl, friendly smile)
-  { src: `${veroDir}IMG_20251019_102524.jpg`, out: 'vero-hero.webp', width: 600, quality: 85 },
-  // About section, meditation pose
-  { src: `${veroDir}20240610_155326.jpg`, out: 'vero-meditation.webp', width: 500, quality: 85 },
-  // Digital guide covers
-  { src: `${ebookDir}logo yoga arcoiris_.png`, out: 'logo-yoga-arcoiris.webp', width: 400, quality: 90 },
-  { src: `${ebookDir}logo Sintoniza con tu ciclo_.jpg`, out: 'logo-ciclo-femenino.webp', width: 400, quality: 90 }
+  // Hero portrait — Vero's profile photo (moon phases, lavender palette)
+  { src: `${DEV_DIR}/foto perfil .png`, out: 'vero-hero.webp', width: 600, quality: 85 },
+  // Ebook covers. The Yoga Arcoíris file is a screenshot taken from a scrolling
+  // document and includes the top sliver of the following page; rows 958+ are
+  // that bleed-through, so crop to 958 before resizing.
+  {
+    src: `${DEV_DIR}/tapa yoga arcoiris_.jpg`,
+    out: 'tapa-yoga-arcoiris.webp',
+    width: 600,
+    quality: 85,
+    extract: { left: 0, top: 0, width: 1002, height: 958 }
+  },
+  { src: `${DEV_DIR}/tapa ebook sintoniza_.png`, out: 'tapa-ciclo-femenino.webp', width: 600, quality: 85 }
 ];
 
 // Source photos available but not used on the site today. Their previously
@@ -32,6 +41,8 @@ const SITE_IMAGES = [
 // To bring one back, move its entry up into SITE_IMAGES and re-run.
 const ARCHIVED_IMAGES = [
   // Vero
+  { src: `${veroDir}IMG_20251019_102524.jpg`, out: 'vero-hero-old.webp', width: 600, quality: 85 },
+  { src: `${veroDir}20240610_155326.jpg`, out: 'vero-meditation.webp', width: 500, quality: 85 },
   { src: `${veroDir}20240225_191421.jpg`, out: 'vero-nature.webp', width: 500, quality: 85 },
   { src: `${veroDir}20210406_165016.jpg`, out: 'vero-teaching.webp', width: 500, quality: 85 },
   { src: `${newVeroDir}1_20260203_110256_0000.png`, out: 'vero-cutout-meditation.webp', width: 500, quality: 90 },
@@ -58,7 +69,10 @@ const ARCHIVED_IMAGES = [
   { src: `${deportistasDir}IMG-20240927-WA0090.jpg`, out: 'deportistas-equipo.webp', width: 800, quality: 80 },
   // Varios
   { src: `${SOURCE_DIR}/IMG_20250908_105624_235.webp`, out: 'yoga-arcoiris.webp', width: 400, quality: 85 },
-  { src: `${SOURCE_DIR}/IMG_20251004_160005.jpg`, out: 'community.webp', width: 800, quality: 80 }
+  { src: `${SOURCE_DIR}/IMG_20251004_160005.jpg`, out: 'community.webp', width: 800, quality: 80 },
+  // Superseded ebook logos, replaced by the full covers in SITE_IMAGES
+  { src: `${ebookDir}logo yoga arcoiris_.png`, out: 'logo-yoga-arcoiris.webp', width: 400, quality: 90 },
+  { src: `${ebookDir}logo Sintoniza con tu ciclo_.jpg`, out: 'logo-ciclo-femenino.webp', width: 400, quality: 90 }
 ];
 
 async function optimizeImages() {
@@ -66,9 +80,11 @@ async function optimizeImages() {
 
   console.log('=== Optimizing Santoshi Devi Images ===\n');
 
-  for (const { src, out, width, quality } of SITE_IMAGES) {
+  for (const { src, out, width, quality, extract } of SITE_IMAGES) {
     console.log(`Processing: ${out}`);
-    await sharp(src)
+    const pipeline = sharp(src);
+    if (extract) pipeline.extract(extract);
+    await pipeline
       .resize(width, null, { withoutEnlargement: true })
       .webp({ quality })
       .toFile(`${OUTPUT_DIR}/${out}`);

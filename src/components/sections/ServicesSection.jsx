@@ -62,7 +62,7 @@ export const ServicesSection = () => {
   // WhatsApp config
   const whatsappNumber = '5491157940342' // +54 911 5794 0342
   const whatsappMessage = encodeURIComponent(
-    'Hola! Quiero reservar una práctica 🧘‍♀️'
+    'Hola! Quiero agendar mi clase de prueba 🧘‍♀️'
   )
   const whatsappLink = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`
 
@@ -99,7 +99,7 @@ export const ServicesSection = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Reservá tu práctica
+            Agenda tu clase de prueba
             <FaChevronRight />
           </CTAButton>
         </CTAContainer>
