@@ -13,12 +13,12 @@
     <meta name="theme-color" content="#8E6AAE" />
 
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Santoshi Devi Yoga - Prácticas de yoga, respiración y movimiento consciente para habitar el cuerpo con amor. Clases presenciales, virtuales y a domicilio, personalizadas o grupales, en Buenos Aires." />
-    <meta name="keywords" content="yoga, clases de yoga, yoga online, yoga Buenos Aires, meditación, bienestar, Reiki, yoga terapéutico, yoga para deportistas" />
+    <meta name="description" content="Santoshi Devi Yoga - Prácticas de yoga, respiración y movimiento consciente para habitar el cuerpo con amor. Clases presenciales en Agronomía (CABA), virtuales y a domicilio, personalizadas o grupales." />
+    <meta name="keywords" content="yoga, clases de yoga, yoga online, yoga Buenos Aires, yoga Agronomía, yoga CABA, meditación, bienestar, Reiki, yoga terapéutico, yoga para deportistas" />
     <meta name="author" content="Vero Santoshi Devi" />
 
     <!-- Open Graph / Social Media -->
-    <meta property="og:title" content="Santoshi Devi Yoga - Prácticas conscientes" />
+    <meta property="og:title" content="Santoshi Devi Yoga - Prácticas para habitar el cuerpo con amor" />
     <meta property="og:description" content="Clases presenciales, virtuales y a domicilio. Personalizadas o grupales." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://santoshidevi.vercel.app" />
@@ -30,7 +30,7 @@
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Santoshi Devi Yoga - Prácticas conscientes" />
+    <meta name="twitter:title" content="Santoshi Devi Yoga - Prácticas para habitar el cuerpo con amor" />
     <meta name="twitter:description" content="Clases presenciales, virtuales y a domicilio. Personalizadas o grupales." />
     <meta name="twitter:image" content="https://santoshidevi.vercel.app/og-image.png" />
 
@@ -43,6 +43,95 @@
     />
 
     <title>Santoshi Devi Yoga | Prácticas para habitar el cuerpo con amor</title>
+
+    <!--
+      Structured data for local search ("yoga cerca mío", "yoga Agronomía").
+      Address, hours and links must match what ContactSection renders from
+      src/data/contact.js — Google penalises markup that isn't on the page.
+      Class times assume a 1h30 duration; adjust `closes` if that changes.
+    -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": ["LocalBusiness", "SportsActivityLocation"],
+        "name": "Santoshi Devi Yoga",
+        "description": "Clases de yoga, respiración y movimiento consciente en Agronomía, CABA. Presenciales, online y a domicilio, grupales o personalizadas.",
+        "url": "https://santoshidevi.vercel.app",
+        "image": "https://santoshidevi.vercel.app/og-image.png",
+        "logo": "https://santoshidevi.vercel.app/images/logo-large.webp",
+        "telephone": "+5491157940342",
+        "email": "santoshideviyoga11@gmail.com",
+        "founder": {
+          "@type": "Person",
+          "name": "Vero — Santoshi Devi"
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Terrada 3600",
+          "addressLocality": "Agronomía, Ciudad Autónoma de Buenos Aires",
+          "addressRegion": "CABA",
+          "postalCode": "C1419",
+          "addressCountry": "AR"
+        },
+        "hasMap": "https://maps.app.goo.gl/3bqhS1vQpdAHTeDQ7",
+        "areaServed": [
+          { "@type": "City", "name": "Ciudad Autónoma de Buenos Aires" },
+          { "@type": "AdministrativeArea", "name": "Comuna 15" }
+        ],
+        "availableLanguage": "es",
+        "sameAs": [
+          "https://instagram.com/santoshideviyoga",
+          "https://www.youtube.com/@santoshideviyoga",
+          "https://maps.app.goo.gl/3bqhS1vQpdAHTeDQ7"
+        ],
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Tuesday", "Thursday"],
+            "opens": "10:00",
+            "closes": "11:30"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Tuesday", "Thursday"],
+            "opens": "16:30",
+            "closes": "21:00"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": "Wednesday",
+            "opens": "17:00",
+            "closes": "18:30"
+          }
+        ],
+        "makesOffer": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Clases de yoga grupales presenciales",
+              "serviceType": "Yoga"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Clases de yoga online grupales",
+              "serviceType": "Yoga"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Clases de yoga personalizadas y a domicilio",
+              "serviceType": "Yoga"
+            }
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>

@@ -53,6 +53,69 @@ export const ContactText = styled.p`
   margin-right: auto;
 `
 
+/* Where and when the classes happen. This is the visible counterpart of the
+   LocalBusiness structured data in index.html — Google expects the address and
+   hours it reads there to also be on the page. */
+export const VisitInfo = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+  margin-bottom: 2.5rem;
+  text-align: left;
+
+  @media (max-width: ${({ theme }) => theme.mobile}) {
+    gap: 1.5rem;
+  }
+`
+
+export const VisitItem = styled.div`
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;
+  font-size: 0.95rem;
+  color: ${({ theme }) => theme.colors.text};
+  line-height: 1.6;
+
+  > svg {
+    flex-shrink: 0;
+    margin-top: 0.2rem;
+    font-size: 1.2rem;
+    color: ${({ theme }) => theme.colors.violet};
+  }
+
+  h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: ${({ theme }) => theme.colors.violetDeep};
+    margin-bottom: 0.3rem;
+  }
+
+  a {
+    color: ${({ theme }) => theme.colors.text};
+    text-decoration: none;
+    border-bottom: 1px solid ${({ theme }) => theme.colors.violetLight};
+    transition: color 0.3s ease, border-color 0.3s ease;
+
+    &:hover {
+      color: ${({ theme }) => theme.colors.violetDeep};
+      border-color: ${({ theme }) => theme.colors.violet};
+    }
+  }
+
+  span {
+    display: block;
+  }
+
+  strong {
+    font-weight: 500;
+    color: ${({ theme }) => theme.colors.violetDeep};
+  }
+`
+
 export const WhatsAppCTA = styled.a`
   display: inline-flex;
   align-items: center;

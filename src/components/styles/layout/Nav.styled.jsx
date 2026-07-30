@@ -42,8 +42,10 @@ export const Logo = styled.a`
   text-decoration: none;
   transition: opacity 200ms ease;
 
+  /* 46px of actual mark in a 70px bar. The asset is trimmed, so this is the
+     real visible height — it used to be 60px of box around ~34px of logo. */
   img {
-    height: 60px;
+    height: 46px;
     width: auto;
     object-fit: contain;
   }

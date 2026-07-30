@@ -1,5 +1,7 @@
 import { FaLaptop, FaHouse, FaHeart, FaSpa, FaPersonRunning } from 'react-icons/fa6'
 import { FaChevronRight } from 'react-icons/fa6'
+import { whatsappLink } from '../../data/contact'
+import { trackWhatsAppClick } from '../../lib/analytics'
 import {
   SectionStyle,
   SectionContainer,
@@ -59,12 +61,7 @@ const activities = [
 ]
 
 export const ServicesSection = () => {
-  // WhatsApp config
-  const whatsappNumber = '5491157940342' // +54 911 5794 0342
-  const whatsappMessage = encodeURIComponent(
-    'Hola! Quiero agendar mi clase de prueba 🧘‍♀️'
-  )
-  const whatsappLink = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`
+  const link = whatsappLink('Hola! Quiero agendar mi clase de prueba 🧘‍♀️')
 
   return (
     <SectionStyle id="servicios">
@@ -95,9 +92,10 @@ export const ServicesSection = () => {
 
         <CTAContainer>
           <CTAButton
-            href={whatsappLink}
+            href={link}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackWhatsAppClick('servicios')}
           >
             Agenda tu clase de prueba
             <FaChevronRight />

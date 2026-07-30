@@ -1,4 +1,6 @@
 import { FaWhatsapp, FaChevronDown } from 'react-icons/fa6'
+import { whatsappLink } from '../../data/contact'
+import { trackWhatsAppClick } from '../../lib/analytics'
 import {
   HeroSectionStyle,
   HeroContainer,
@@ -12,12 +14,7 @@ import {
 } from '../styles/sections/HeroSection.styled'
 
 export const HeroSection = () => {
-  // WhatsApp number
-  const whatsappNumber = '5491157940342' // +54 911 5794 0342
-  const whatsappMessage = encodeURIComponent(
-    'Hola! Quiero agendar mi clase de prueba 🧘‍♀️'
-  )
-  const whatsappLink = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`
+  const link = whatsappLink('Hola! Quiero agendar mi clase de prueba 🧘‍♀️')
 
   return (
     <HeroSectionStyle id="inicio">
@@ -38,9 +35,10 @@ export const HeroSection = () => {
           </Subheadline>
 
           <CTAButton
-            href={whatsappLink}
+            href={link}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackWhatsAppClick('hero')}
             $whatsapp
           >
             <FaWhatsapp />

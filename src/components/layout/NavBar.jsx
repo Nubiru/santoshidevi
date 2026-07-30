@@ -11,6 +11,8 @@ import {
   WhatsAppButton
 } from '../styles/layout/Nav.styled'
 import useScrollDirection from '../../hooks/useScrollDirection'
+import { whatsappLink } from '../../data/contact'
+import { trackWhatsAppClick } from '../../lib/analytics'
 
 const navItems = [
   { text: 'Inicio', href: '#inicio' },
@@ -26,12 +28,7 @@ export const NavBar = () => {
   // 'up' keeps the bar visible on load; Nav.styled hides it only on 'down'.
   const scrollDirection = useScrollDirection({ initialDirection: 'up' })
 
-  // WhatsApp config
-  const whatsappNumber = '5491157940342' // +54 911 5794 0342
-  const whatsappMessage = encodeURIComponent(
-    'Hola! Me interesa conocer más sobre las clases de yoga 🧘‍♀️'
-  )
-  const whatsappLink = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`
+  const link = whatsappLink('Hola Vero! Tengo una consulta 🧘‍♀️')
 
   return (
     <Nav $scroll={scrollDirection}>
@@ -56,13 +53,16 @@ export const NavBar = () => {
         ))}
         <NavItem $index={navItems.length} $open={menuOpen}>
           <WhatsAppButton
-            href={whatsappLink}
+            href={link}
             target="_blank"
             rel="noopener noreferrer"
-            onClick={() => setMenuOpen(false)}
+            onClick={() => {
+              trackWhatsAppClick('nav')
+              setMenuOpen(false)
+            }}
           >
             <FaWhatsapp />
-            WhatsApp
+            Consultas
           </WhatsAppButton>
         </NavItem>
       </NavList>

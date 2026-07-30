@@ -27,10 +27,11 @@ export const HeroSectionStyle = styled.section`
   padding: 6rem 2rem 4rem;
   overflow: hidden;
 
-  /* Tighter on mobile so the WhatsApp CTA clears the fold and the fixed
-     SocialSidebar bar at the bottom of the viewport. */
+  /* Mobile: the nav is fixed at 70px, so the first 70px of this padding sits
+     under it. 7rem leaves ~42px of breathing room below the nav while still
+     keeping the WhatsApp CTA above the fixed SocialSidebar bar. */
   @media (max-width: ${({ theme }) => theme.mobile}) {
-    padding: 4.5rem 1.5rem 3rem;
+    padding: 7rem 1.5rem 3rem;
   }
 
   &::before {

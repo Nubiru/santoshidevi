@@ -1,10 +1,29 @@
-import { FaWhatsapp, FaEnvelope, FaInstagram, FaYoutube } from 'react-icons/fa6'
+import {
+  FaWhatsapp,
+  FaEnvelope,
+  FaInstagram,
+  FaYoutube,
+  FaLocationDot,
+  FaRegClock
+} from 'react-icons/fa6'
+import {
+  whatsappLink,
+  EMAIL,
+  INSTAGRAM_URL,
+  YOUTUBE_URL,
+  GOOGLE_MAPS_URL,
+  ADDRESS,
+  SCHEDULE
+} from '../../data/contact'
+import { trackWhatsAppClick } from '../../lib/analytics'
 import {
   SectionStyle,
   SectionContainer,
   SectionHeader,
   ContactCard,
   ContactText,
+  VisitInfo,
+  VisitItem,
   WhatsAppCTA,
   ContactLinks,
   ContactLink,
@@ -13,12 +32,9 @@ import {
 } from '../styles/sections/ContactSection.styled'
 
 export const ContactSection = () => {
-  // WhatsApp config
-  const whatsappNumber = '5491157940342' // +54 911 5794 0342
-  const whatsappMessage = encodeURIComponent(
-    'Hola Vero! Me gustaría consultar sobre las clases de yoga 🧘‍♀️'
+  const link = whatsappLink(
+    'Hola Vero! Me gustaría recibir más info sobre las clases 🧘‍♀️'
   )
-  const whatsappLink = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`
 
   return (
     <SectionStyle id="contacto">
@@ -35,25 +51,56 @@ export const ContactSection = () => {
             camino.
           </ContactText>
 
+          <VisitInfo>
+            <VisitItem>
+              <FaLocationDot />
+              <div>
+                <h3>Dónde</h3>
+                <a
+                  href={GOOGLE_MAPS_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {ADDRESS.street}, {ADDRESS.neighborhood}
+                </a>
+                <span>{ADDRESS.city}</span>
+                <span>También clases online y a domicilio</span>
+              </div>
+            </VisitItem>
+
+            <VisitItem>
+              <FaRegClock />
+              <div>
+                <h3>Horarios</h3>
+                {SCHEDULE.map((slot) => (
+                  <span key={slot.days}>
+                    <strong>{slot.days}</strong> · {slot.times} ({slot.mode})
+                  </span>
+                ))}
+              </div>
+            </VisitItem>
+          </VisitInfo>
+
           <WhatsAppCTA
-            href={whatsappLink}
+            href={link}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackWhatsAppClick('contacto')}
           >
             <FaWhatsapp />
-            Escribime por WhatsApp
+            Escribime para más info
           </WhatsAppCTA>
 
           <ContactLinks>
-            <ContactLink href="mailto:santoshideviyoga11@gmail.com">
+            <ContactLink href={`mailto:${EMAIL}`}>
               <FaEnvelope />
-              santoshideviyoga11@gmail.com
+              {EMAIL}
             </ContactLink>
           </ContactLinks>
 
           <SocialLinks>
             <SocialLink
-              href="https://instagram.com/santoshideviyoga"
+              href={INSTAGRAM_URL}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
@@ -61,7 +108,7 @@ export const ContactSection = () => {
               <FaInstagram />
             </SocialLink>
             <SocialLink
-              href="https://youtube.com/@santoshideviyoga"
+              href={YOUTUBE_URL}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="YouTube"

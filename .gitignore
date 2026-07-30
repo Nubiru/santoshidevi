@@ -38,3 +38,8 @@ README_PROCESO_CLIENTE.md
 # Local settings
 settings.json
 .vscode/settings.json
+
+# Local env (VITE_GA_ID)
+.env
+.env.*
+!.env.example

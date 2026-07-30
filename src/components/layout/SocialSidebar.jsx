@@ -3,27 +3,33 @@ import {
   SidebarContainer,
   SidebarLink
 } from '../styles/layout/SocialSidebar.styled'
+import {
+  whatsappLink,
+  INSTAGRAM_URL,
+  YOUTUBE_URL,
+  HOTMART_YOGA_ARCOIRIS
+} from '../../data/contact'
+import { trackWhatsAppClick } from '../../lib/analytics'
 
 export const SocialSidebar = () => {
-  const whatsappNumber = '5491157940342'
-  const whatsappMessage = encodeURIComponent(
-    'Hola! Me interesa conocer más sobre las clases de yoga 🧘‍♀️'
+  const link = whatsappLink(
+    'Hola Vero! Me gustaría recibir más info sobre las clases 🧘‍♀️'
   )
-  const whatsappLink = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`
 
   return (
     <SidebarContainer>
       <SidebarLink
-        href={whatsappLink}
+        href={link}
         target="_blank"
         rel="noopener noreferrer"
         aria-label="WhatsApp"
+        onClick={() => trackWhatsAppClick('sidebar')}
         $color="#25D366"
       >
         <FaWhatsapp />
       </SidebarLink>
       <SidebarLink
-        href="https://instagram.com/santoshideviyoga"
+        href={INSTAGRAM_URL}
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Instagram"
@@ -32,7 +38,7 @@ export const SocialSidebar = () => {
         <FaInstagram />
       </SidebarLink>
       <SidebarLink
-        href="https://www.youtube.com/@santoshideviyoga"
+        href={YOUTUBE_URL}
         target="_blank"
         rel="noopener noreferrer"
         aria-label="YouTube"
@@ -41,7 +47,7 @@ export const SocialSidebar = () => {
         <FaYoutube />
       </SidebarLink>
       <SidebarLink
-        href="https://hotmart.com/es/marketplace/productos/yoga-arcoiris/N101700640M"
+        href={HOTMART_YOGA_ARCOIRIS}
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Hotmart"

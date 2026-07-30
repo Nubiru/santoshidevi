@@ -25,7 +25,10 @@ const SITE_IMAGES = [
   // Brand logo. The source is a 1024x1024 canvas whose artwork is only 576x567 —
   // ~45% of the height is transparent padding, which pushed the hero CTA below
   // the fold on mobile. Trim it so CSS height == visible logo height.
-  { src: `${NEW_DIR}/logo sin fondo .png`, out: 'logo-large.webp', width: 576, quality: 90, trim: true },
+  { src: `${NEW_DIR}/logo sin fondo .png`, out: 'logo-large.webp', width: 320, quality: 90, trim: true },
+  // Same artwork for the navbar. Untrimmed it was 44% padding, so a 60px CSS
+  // height only showed ~34px of mark next to a 1.4rem wordmark.
+  { src: `${NEW_DIR}/logo sin fondo .png`, out: 'logo-nav.webp', width: 140, quality: 90, trim: true },
   // Hero portrait — Vero's profile photo (moon phases, lavender palette)
   { src: `${DEV_DIR}/foto perfil .png`, out: 'vero-hero.webp', width: 600, quality: 85 },
   // Ebook covers. The Yoga Arcoíris file is a screenshot taken from a scrolling
